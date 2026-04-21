@@ -548,10 +548,10 @@ document.addEventListener('click', e => {
 function getNextEventDate() {
   const now = new Date();
   // Evento às 08:00 do dia 26 do mês atual ou próximo mês
-  let target = new Date(now.getFullYear(), now.getMonth(), 26, 8, 0, 0, 0);
+  let target = new Date(now.getFullYear(), now.getMonth(), 24, 20, 0, 0, 0);
   if (now >= target) {
     // já passou, vai pro próximo mês
-    target = new Date(now.getFullYear(), now.getMonth() + 1, 26, 8, 0, 0, 0);
+    target = new Date(now.getFullYear(), now.getMonth() + 1, 24, 20, 0, 0, 0);
   }
   return target;
 }
@@ -584,7 +584,7 @@ function updateCountdown() {
   document.getElementById('cd-secs').textContent  = pad(secs);
 
   const dateStr = target.toLocaleDateString(undefined, {day:'2-digit',month:'2-digit',year:'numeric'});
-  document.getElementById('cd-date-label').textContent = (t.eventOn || 'Evento em:') + ' ' + dateStr + ' 08:00';
+  document.getElementById('cd-date-label').textContent = (t.eventOn || 'Evento em:') + ' ' + dateStr + ' 08:00 PM';
 }
 
 setInterval(updateCountdown, 1000);
